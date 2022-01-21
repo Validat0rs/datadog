@@ -55,7 +55,7 @@ e.g.:
 API_KEY=b55gweGZj9LWxXG5 make helm-datadog-deploy
 ```
 
-4. You should be able to see the chart deployed, by running:
+4. You should then be able to see the chart deployed, by running:
 
 ```console
 kubectl get pods -n monitoring
