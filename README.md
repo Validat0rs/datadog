@@ -42,7 +42,7 @@ AWS_PROFILE=my-profile \
 make provider-aws-kubeconfig
 ```
 
-2. Generate a new API key from within your DataDog account.
+2. Generate a new [API key](https://app.datadoghq.com/account/settings#api) from within your DataDog account.
 
 3. Deploy the helm chart:
 
