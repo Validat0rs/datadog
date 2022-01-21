@@ -10,6 +10,17 @@ helm_installed() {
 }
 
 #
+# AWS CLI installed?
+#
+awscli_installed() {
+  installed=$(command -v aws)
+  if [ "${installed}" = 1 ]; then
+    echo "aws cli does not appear to be installed. Please see: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html"
+    exit 1
+  fi
+}
+
+#
 # AWS Access Key ID.
 #
 aws_access_key_id() {
