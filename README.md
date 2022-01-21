@@ -19,23 +19,27 @@ It's assumed that you have some basic AWS knowledge. Setup of the CLI and your k
 1. Ensure you've switched to your cluster:
 
 ```console
-unset KUBECONFIG
-aws eks update-kubeconfig --name <cluster> --region <region> --profile <profile>
+CLUSTER_NAME=<cluster_name> \
+AWS_REGION=<aws_region> \
+AWS_PROFILE=<aws_profile> \
+make provider-aws-kubeconfig
 ```
 
 Where:
 
 |Param|Description|
 |-----|-----------|
-|`<cluster>`|The name of your EKS cluster.|
-|`<region>`|The AWS region where your cluster is deployed to.|
-|`<profile>`|The name of the AWS profile.|
+|`<cluster_name>`|The name of your EKS cluster.|
+|`<aws_region>`|The AWS region where your cluster is deployed to.|
+|`<aws_profile>`|The name of the AWS profile.|
 
 e.g.:
 
 ```console
-unset KUBECONFIG
-aws eks update-kubeconfig --name my-aws-cluster --region us-east-1 --profile my-profile
+CLUSTER_NAME=my-cluster \
+AWS_REGION=us-east-1 \
+AWS_PROFILE=my-profile \
+make provider-aws-kubeconfig
 ```
 
 2. Generate a new API key from within your DataDog account.
