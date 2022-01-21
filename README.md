@@ -42,7 +42,7 @@ AWS_PROFILE=my-profile \
 make provider-aws-kubeconfig
 ```
 
-2. Generate a new API key from within your DataDog account.
+2. Generate a new [API key](https://app.datadoghq.com/account/settings#api) from within your DataDog account.
 
 3. Deploy the helm chart:
 
@@ -55,7 +55,7 @@ e.g.:
 API_KEY=b55gweGZj9LWxXG5 make helm-datadog-deploy
 ```
 
-4. You should be able to see the chart deployed, by running:
+4. You should then be able to see the chart deployed, by running:
 
 ```console
 kubectl get pods -n monitoring
