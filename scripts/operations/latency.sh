@@ -32,7 +32,7 @@ run() {
   latest_block_time
 
   LATEST_BLOCK_TS=$(date -u -d "${LATEST_BLOCK_TIME}" +%s)
-  TAG=$(curl -s "${NODE}" | jq '.result.node_info.moniker' | sed 's/"//g')
+  TAG=$(hostname | xargs)
   CURRENT_TS=$(date -u +%s)
 
   NOW=$(date -u +%s)
