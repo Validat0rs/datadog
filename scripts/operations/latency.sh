@@ -50,7 +50,7 @@ run() {
         ],
         "type": "count",
         "unit": "second",
-        "metric": "cosmos.rpc.block_latency",
+        "metric": "rpc.block_latency",
         "points": [
           [
             "${NOW}",
