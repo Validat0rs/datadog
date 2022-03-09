@@ -6,4 +6,3 @@ provider-aws-configure:
 
 provider-aws-kubeconfig:
 	@./scripts/provider/aws/kubeconfig.sh -c $(CLUSTER_NAME) -r $(AWS_REGION) -p $(AWS_PROFILE)
-
