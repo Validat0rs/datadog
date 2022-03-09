@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# THORNode Slashpoints.
+# THORNode Slash Points.
 #
 
 #
@@ -19,10 +19,10 @@ EOF
 }
 
 #
-# Slashpoints.
+# Slash Points.
 #
-slashpoints() {
-  SLASHPOINTS=$(curl -s https://thornode.ninerealms.com/thorchain/node/"${1}" | jq .slash_points)
+slash_points() {
+  SLASH_POINTS=$(curl -s https://thornode.ninerealms.com/thorchain/node/"${1}" | jq .slash_points)
 }
 
 #
@@ -32,7 +32,7 @@ run() {
   ADDRESS="${1}"
   TAG="${2}"
 
-  slashpoints "$ADDRESS"
+  slash_points "$ADDRESS"
   NOW=$(date -u +%s)
 
   curl -X POST "https://api.datadoghq.com/api/v1/series?api_key=${DD_API_KEY}" \
@@ -47,11 +47,11 @@ run() {
         ],
         "type": "count",
         "unit": "unit",
-        "metric": "thornode.slashpoints",
+        "metric": "thornode.slash_points",
         "points": [
           [
             "${NOW}",
-            "${SLASHPOINTS}"
+            "${SLASH_POINTS}"
           ]
         ]
       }
