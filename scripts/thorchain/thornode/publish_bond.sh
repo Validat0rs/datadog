@@ -52,7 +52,7 @@ run() {
         "points": [
           [
             "${NOW}",
-            "${BOND}"
+            "${CONVERTED}"
           ]
         ]
       }
