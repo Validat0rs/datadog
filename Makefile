@@ -9,3 +9,6 @@ provider-aws-kubeconfig:
 
 thorchain-thornode-publish-slashpoints:
 	@./scripts/thorchain/thornode/publish_slashpoints.sh -a $(ADDRESS) -t $(TAG)
+
+thorchain-thornode-publish-bond:
+	@./scripts/thorchain/thornode/publish_bond.sh -a $(ADDRESS) -t $(TAG)
