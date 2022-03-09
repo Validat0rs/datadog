@@ -41,6 +41,7 @@ run() {
   {
     "series": [
       {
+        "interval": 60,
         "tags": [
           "environment:${TAG}"
         ],
