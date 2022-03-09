@@ -46,7 +46,7 @@ run() {
           "environment:${TAG}"
         ],
         "type": "count",
-        "unit": "second",
+        "unit": "unit",
         "metric": "thornode.slashpoints",
         "points": [
           [
