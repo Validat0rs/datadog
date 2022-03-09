@@ -22,7 +22,7 @@ EOF
 # Slashpoints.
 #
 slashpoints() {
-  SLASH_POINTS=$(curl -s https://thornode.ninerealms.com/thorchain/node/"${1}" | jq .slash_points)
+  SLASHPOINTS=$(curl -s https://thornode.ninerealms.com/thorchain/node/"${1}" | jq .slash_points)
 }
 
 #
@@ -51,7 +51,7 @@ run() {
         "points": [
           [
             "${NOW}",
-            "${SLASH_POINTS}"
+            "${SLASHPOINTS}"
           ]
         ]
       }

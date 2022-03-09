@@ -6,3 +6,6 @@ provider-aws-configure:
 
 provider-aws-kubeconfig:
 	@./scripts/provider/aws/kubeconfig.sh -c $(CLUSTER_NAME) -r $(AWS_REGION) -p $(AWS_PROFILE)
+
+thorchain-thornode-publish-slashpoints:
+	@./scripts/thorchain/thornode/publish_slashpoints.sh -a $(ADDRESS) -t $(TAG)
