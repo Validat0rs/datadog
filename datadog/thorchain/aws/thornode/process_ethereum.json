@@ -1,7 +1,7 @@
 {
   "name": "AWS-EKS-PROCESS-ETHEREUM",
   "type": "process alert",
-  "query": "processes('geth').rollup('count').last('5m') < 2",
+  "query": "processes('geth').rollup('count').last('5m') < 1",
   "message": "@pagerduty",
   "tags": [
     "thorchain"

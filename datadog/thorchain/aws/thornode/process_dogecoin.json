@@ -1,7 +1,7 @@
 {
   "name": "AWS-EKS-PROCESS-DOGECOIN",
   "type": "process alert",
-  "query": "processes('dogecoind').rollup('count').last('5m') < 2",
+  "query": "processes('dogecoind').rollup('count').last('5m') < 1",
   "message": "@pagerduty",
   "tags": [
     "thorchain"

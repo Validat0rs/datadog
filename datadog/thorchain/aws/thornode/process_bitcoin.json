@@ -1,7 +1,7 @@
 {
   "name": "AWS-EKS-PROCESS-BITCOIN",
   "type": "process alert",
-  "query": "processes('bitcoind').over('kube_app_name:bitcoin-daemon').rollup('count').last('5m') < 2",
+  "query": "processes('bitcoind').over('kube_app_name:bitcoin-daemon').rollup('count').last('5m') < 1",
   "message": "@pagerduty",
   "tags": [
     "thorchain"

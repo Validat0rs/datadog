@@ -1,7 +1,7 @@
 {
   "name": "AWS-EKS-PROCESS-BIFROST",
   "type": "process alert",
-  "query": "processes('bifrost').rollup('count').last('5m') < 2",
+  "query": "processes('bifrost').rollup('count').last('5m') < 1",
   "message": "@pagerduty",
   "tags": [
     "thorchain"
