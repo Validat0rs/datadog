@@ -1,0 +1,24 @@
+{
+  "name": "RPC-BLOCK-LATENCY-{{environment.name}}",
+  "type": "query alert",
+  "query": "sum(last_5m):avg:rpc.block_latency{*} by {environment}.as_count() > 600",
+  "message": "@pagerduty",
+  "tags": [],
+  "options": {
+    "notify_audit": true,
+    "silenced": {},
+    "include_tags": true,
+    "thresholds": {
+      "critical": 600,
+      "warning": 300,
+      "critical_recovery": 180
+    },
+    "require_full_window": true,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "escalation_message": "",
+    "new_group_delay": 60
+  },
+  "priority": 1,
+  "restricted_roles": null
+}
