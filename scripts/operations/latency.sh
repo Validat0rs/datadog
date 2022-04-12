@@ -50,7 +50,7 @@ run() {
         ],
         "type": "gauge",
         "unit": "second",
-        "metric": "rpc.block_latency",
+        "metric": "validat0rs.rpc.block_latency",
         "points": [
           [
             "${NOW}",
