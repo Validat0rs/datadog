@@ -48,7 +48,7 @@ run() {
         "tags": [
           "environment:${TAG}"
         ],
-        "type": "count",
+        "type": "gauge",
         "unit": "second",
         "metric": "rpc.block_latency",
         "points": [
