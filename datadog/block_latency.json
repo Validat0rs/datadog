@@ -1,7 +1,7 @@
 {
   "name": "RPC-BLOCK-LATENCY-{{environment.name}}",
   "type": "query alert",
-  "query": "sum(last_5m):avg:rpc.block_latency{*} by {environment}.as_count() > 600",
+  "query": "max(last_5m):max:validat0rs.rpc.block_latency{*} by {environment} > 600",
   "message": "@pagerduty",
   "tags": [],
   "options": {
