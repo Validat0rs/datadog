@@ -1,0 +1,28 @@
+{
+  "name": "HETZNER-BARE-METAL-PROCESS-GAIA",
+  "type": "process alert",
+  "query": "processes('gaiad start').rollup('count').last('5m') < 3",
+  "message": "@pagerduty",
+  "tags": [
+    "cosmoshub"
+  ],
+  "options": {
+    "notify_audit": false,
+    "renotify_statuses": null,
+    "timeout_h": 0,
+    "silenced": {},
+    "include_tags": true,
+    "no_data_timeframe": null,
+    "new_host_delay": 300,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "escalation_message": "",
+    "renotify_occurrences": null,
+    "thresholds": {
+      "critical": 3
+    }
+  },
+  "priority": 1,
+  "restricted_roles": null
+}
