@@ -39,7 +39,7 @@ setup() {
 #
 run() {
   helm upgrade --install -n monitoring --create-namespace \
-  -f $(pwd)/helm/datadog/values.yaml \
+  -f $(pwd)/setup/datadog/helm/values.yaml \
   --set datadog.site='datadoghq.com' \
   --set datadog.apiKey="${1}" \
   datadog-agent datadog/datadog

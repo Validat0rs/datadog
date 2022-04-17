@@ -2,10 +2,6 @@
 
 General-purpose scripts.
 
-## Prerequisites
-
-These scripts are intended to be used on a non-Kubernetes environment. Please ensure that you're setup DataDog as per the [standalone](datadog/README.md#Standalone) instructions.
-
 ## Block Latency
 
 Monitoring the block latency of a node informs us if a node has possibly locked up or disconnected from the network.

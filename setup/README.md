@@ -4,6 +4,8 @@ All commands should be run from the root of the repository.
 
 ## EKS
 
+For those chains, like THORChain, that run on Kubernetes.
+
 ### Prerequisites
 
 - [helm](https://helm.sh/docs/intro/install)
@@ -50,7 +52,8 @@ API_KEY=<API_KEY> make helm-datadog-deploy
 e.g.:
 
 ```console
-API_KEY=b55gweGZj9LWxXG5 make helm-datadog-deploy
+API_KEY=b55gweGZj9LWxXG5 \
+make vendor-datadog-helm-deploy
 ```
 
 4. You should then be able to see the chart deployed, by running:
@@ -60,6 +63,8 @@ kubectl get pods -n monitoring
 ```
 
 ## Standalone
+
+For those chains running on VPS/Bare Metal. 
 
 ### Setup
 

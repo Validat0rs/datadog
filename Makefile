@@ -1,5 +1,5 @@
-datadog-helm-deploy:
-	@./scripts/datadog/helm/deploy.sh -a $(API_KEY)
+vendor-datadog-helm-deploy:
+	@./scripts/vendor/datadog/helm/deploy.sh -a $(API_KEY)
 
 provider-aws-configure:
 	@./scripts/provider/aws/configure.sh -a $(AWS_ACCESS_KEY_ID) -s $(AWS_SECRET_ACCESS_KEY) -r $(AWS_REGION) -p $(AWS_PROFILE)
