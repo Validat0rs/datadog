@@ -12,7 +12,7 @@ usage() {
 
   Options:
   -h      This help output.
-  -n      Node address.
+  -r      RPC status URL.
 EOF
   exit 1
 }
@@ -63,13 +63,13 @@ run() {
 EOF
 }
 
-while getopts ":hn:" opt; do
+while getopts ":hr:" opt; do
   case "${opt}" in
     h)
       usage
       ;;
-    n)
-      n=${OPTARG}
+    r)
+      r=${OPTARG}
       ;;
     *)
       usage
@@ -78,8 +78,8 @@ while getopts ":hn:" opt; do
 done
 shift $((OPTIND-1))
 
-if [ -z "${n}" ]; then
+if [ -z "${r}" ]; then
   usage
 fi
 
-run "${n}"
+run "${r}"
