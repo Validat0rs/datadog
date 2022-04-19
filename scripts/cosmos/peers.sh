@@ -44,9 +44,9 @@ run() {
         "tags": [
           "environment:${TAG}"
         ],
-        "type": "count",
-        "unit": "unit",
-        "metric": "validat0rs.rpc.peers",
+        "type": "gauge",
+        "unit": "node",
+        "metric": "validat0rs.p2p.num_peers",
         "points": [
           [
             "${NOW}",
