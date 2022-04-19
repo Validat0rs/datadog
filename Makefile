@@ -15,3 +15,6 @@ cosmos-thorchain-thornode-slash-points:
 
 cosmos-block-latency:
 	@./scripts/cosmos/block_latency.sh -r $(RPC_STATUS_URL)
+
+cosmos-peers:
+	@./scripts/cosmos/block_latency.sh -r $(RPC_NET_INFO_URL)

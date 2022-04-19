@@ -23,3 +23,25 @@ e.g.:
 RPC_STATUS_URL=http://localhost:26657/status \
 make cosmos-block-latency
 ```
+
+## Peers
+
+Monitoring the number of peers is helps to determine if a node has potential reachability issues.
+
+```console
+RPC_NET_INFO_URL=<rpc_net_info_url> \
+make cosmos-peers
+```
+
+where:
+
+|Param|Description|
+|-----|-----------|
+|`<rpc_net_info_url>`|The RPC net info URL (e.g.: `http://localhost:26657/net_info`) |
+
+e.g.:
+
+```console
+RPC_NET_INFO_URL=http://localhost:26657/net_info \
+make cosmos-peers
+```
