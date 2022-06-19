@@ -46,7 +46,7 @@ run() {
         ],
         "type": "gauge",
         "unit": "node",
-        "metric": "validat0rs.p2p.num_peers",
+        "metric": "cosmos.peers",
         "points": [
           [
             "${NOW}",

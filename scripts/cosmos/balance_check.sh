@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# THORNode Slash Points.
+# Check balances.
 #
 
 #
@@ -12,17 +12,18 @@ usage() {
 
   Options:
   -h      This help output.
-  -a      Node address (e.g.: thor18r4hpkhsvc7ts25gkrzu7h7q3s9n4zs6j5qfnv).
-  -t      Node friendly name (e.g.: thorchain01).
+  -a      Wallet address.
+  -r      RPC node address.
+  -t      Tag prefix (to help identify the metric in DataDog).
 EOF
   exit 1
 }
 
 #
-# Slash Points.
+# Balance.
 #
-slash_points() {
-  SLASH_POINTS=$(curl -s https://thornode.ninerealms.com/thorchain/node/"${1}" | jq .slash_points)
+balance() {
+  BALANCE=$(curl -s "${2}/bank/balances/${1}" | jq -r '.result[0].amount')
 }
 
 #
@@ -30,9 +31,10 @@ slash_points() {
 #
 run() {
   ADDRESS="${1}"
-  TAG="${2}"
+  RPC="${2}"
+  TAG="${3}"
 
-  slash_points "$ADDRESS"
+  balance "${ADDRESS}" "${RPC}"
   NOW=$(date -u +%s)
 
   curl -X POST "https://api.datadoghq.com/api/v1/series?api_key=${DD_API_KEY}" \
@@ -46,11 +48,11 @@ run() {
         ],
         "type": "count",
         "unit": "unit",
-        "metric": "cosmos.thorchain.thornode.slash_points",
+        "metric": "cosmos.balance_check",
         "points": [
           [
             "${NOW}",
-            "${SLASH_POINTS}"
+            "${BALANCE}"
           ]
         ]
       }
@@ -59,13 +61,16 @@ run() {
 EOF
 }
 
-while getopts ":ha:t:" opt; do
+while getopts ":ha:r:t:" opt; do
   case "${opt}" in
     h)
       usage
       ;;
     a)
       a=${OPTARG}
+      ;;
+    r)
+      r=${OPTARG}
       ;;
     t)
       t=${OPTARG}
@@ -78,8 +83,9 @@ done
 shift $((OPTIND-1))
 
 if [ -z "${a}" ] ||
+    [ -z "${r}" ] ||
     [ -z "${t}" ]; then
   usage
 fi
 
-run "${a}" "${t}"
+run "${a}" "${r}" "${t}"

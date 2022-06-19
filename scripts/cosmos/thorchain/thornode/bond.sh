@@ -47,7 +47,7 @@ run() {
         ],
         "type": "count",
         "unit": "unit",
-        "metric": "thornode.bond",
+        "metric": "cosmos.thorchain.thornode.bond",
         "points": [
           [
             "${NOW}",

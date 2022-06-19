@@ -109,7 +109,3 @@ DD_API_KEY=b55gweGZj9LWxXG5 \
 DD_SITE="datadoghq.com" \
 bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"
 ```
-
-## Monitors
-
-A number of monitors for several chains can be found [here](monitors). These can be imported into DataDog and tweaked accordingly.

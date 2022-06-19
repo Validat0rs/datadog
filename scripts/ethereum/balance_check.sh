@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# THORNode Slash Points.
+# Check balances.
 #
 
 #
@@ -12,17 +12,17 @@ usage() {
 
   Options:
   -h      This help output.
-  -a      Node address (e.g.: thor18r4hpkhsvc7ts25gkrzu7h7q3s9n4zs6j5qfnv).
-  -t      Node friendly name (e.g.: thorchain01).
+  -a      Wallet address.
+  -t      Tag prefix (to help identify the metric in DataDog).
 EOF
   exit 1
 }
 
 #
-# Slash Points.
+# Balance.
 #
-slash_points() {
-  SLASH_POINTS=$(curl -s https://thornode.ninerealms.com/thorchain/node/"${1}" | jq .slash_points)
+balance() {
+  BALANCE=$(curl -s "https://api.ethplorer.io/getAddressInfo/${1}?apiKey=freekey" | jq -r .ETH.balance)
 }
 
 #
@@ -32,7 +32,7 @@ run() {
   ADDRESS="${1}"
   TAG="${2}"
 
-  slash_points "$ADDRESS"
+  balance "$ADDRESS"
   NOW=$(date -u +%s)
 
   curl -X POST "https://api.datadoghq.com/api/v1/series?api_key=${DD_API_KEY}" \
@@ -46,11 +46,11 @@ run() {
         ],
         "type": "count",
         "unit": "unit",
-        "metric": "cosmos.thorchain.thornode.slash_points",
+        "metric": "ethereum.balance_check",
         "points": [
           [
             "${NOW}",
-            "${SLASH_POINTS}"
+            "${BALANCE}"
           ]
         ]
       }
