@@ -44,7 +44,7 @@ run() {
     "series": [
       {
         "tags": [
-          "environment:${TAG}"
+          "wallet:${TAG}"
         ],
         "type": "count",
         "unit": "unit",

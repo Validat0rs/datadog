@@ -4,7 +4,7 @@ Infrastructure monitoring with [DataDog](https://datadoghq.com).
 
 ## Setup
 
-For setting up DataDog, please see [here](setup/README.md).
+To setup DataDog on EKS, a VPS or Bare Metal, then please see [here](setup).
 
 ## Chains
 
