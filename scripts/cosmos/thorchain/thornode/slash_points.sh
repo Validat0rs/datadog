@@ -47,7 +47,7 @@ run() {
         ],
         "type": "count",
         "unit": "unit",
-        "metric": "cosmos.thorchain.thornode.slash",
+        "metric": "cosmos.thorchain.thornode.slash_points",
         "points": [
           [
             "${NOW}",
