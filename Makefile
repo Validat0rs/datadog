@@ -10,6 +10,9 @@ provider-aws-kubeconfig:
 cosmos-restake-balance-check:
 	@./scripts/cosmos/restake/balance_check.sh -a $(NODE_ADDRESS) -w $(WALLET_ADDRESS) -t $(TAG)
 
+cosmos-sommelier-orchestrator-balance-check:
+	@./scripts/ethereum/sommelier/orchestrator_balance_check.sh -w $(WALLET_ADDRESS) -t $(TAG)
+
 cosmos-thorchain-thornode-bond:
 	@./scripts/cosmos/thorchain/thornode/bond.sh -a $(NODE_ADDRESS) -t $(NODE_NAME)
 
@@ -25,5 +28,5 @@ cosmos-block-latency:
 cosmos-peers:
 	@./scripts/cosmos/peers.sh -r $(RPC_NET_INFO_URL)
 
-ethereum-balance-check:
-	@./scripts/ethereum/balance_check.sh -w $(WALLET_ADDRESS) -t $(TAG)
+ethereum-sommelier-signer-balance-check:
+	@./scripts/ethereum/sommelier/signer_balance_check.sh -w $(WALLET_ADDRESS) -t $(TAG)

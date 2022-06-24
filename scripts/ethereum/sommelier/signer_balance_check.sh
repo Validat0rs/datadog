@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Check balances.
+# Check Sommelier Ethereum signer balance.
 #
 
 #
@@ -47,7 +47,7 @@ run() {
         ],
         "type": "gauge",
         "unit": "unit",
-        "metric": "ethereum.balance_check",
+        "metric": "ethereum.sommelier.signer.balance_check",
         "points": [
           [
             "${NOW}",
