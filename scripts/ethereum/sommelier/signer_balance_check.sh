@@ -43,7 +43,7 @@ run() {
       {
         "interval": 60,
         "tags": [
-          "wallet:${TAG}"
+          "environment:${TAG}"
         ],
         "type": "gauge",
         "unit": "unit",
