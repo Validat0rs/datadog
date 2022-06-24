@@ -13,6 +13,9 @@ cosmos-thorchain-thornode-bond:
 cosmos-thorchain-thornode-slash-points:
 	@./scripts/cosmos/thorchain/thornode/slash_points.sh -a $(NODE_ADDRESS) -t $(NODE_NAME)
 
+cosmos-thorchain-thornode-status:
+	@./scripts/cosmos/thorchain/thornode/status.sh -a $(NODE_ADDRESS) -t $(NODE_NAME)
+
 cosmos-balance-check:
 	@./scripts/cosmos/balance_check.sh -a $(NODE_ADDRESS) -w $(WALLET_ADDRESS) -t $(TAG)
 
