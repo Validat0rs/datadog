@@ -11,8 +11,8 @@ General purpose scripts for any Cosmos chain.
 To check the balance of a given address, run:
 
 ```console
-ADDRESS=<address> \
-RPC_NODE=<rpc_node> \
+NODE_ADDRESS=<api_node>
+WALLET_ADDRESS=<address> \
 TAG=<tag> \
 make cosmos-balance-check
 ```
@@ -21,15 +21,15 @@ where:
 
 |Param|Description|
 |-----|-----------|
+|`<api_node>`|The API node address (including protocol, e.g.: https://cosmos-api.validat0.rs).|
 |`<address>`|The address to get the balance of.|
-|`<rpc_node>`|The RPC node address (including protocol, e.g.: https://cosmos-rpc.validat0.rs).|
 |`<tag>`|The name of the DataDog tag for this metric.|
 
 e.g.:
 
 ```console
-ADDRESS=cosmos1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u0tvx7u \
-RPC_NODE=https://cosmos-rpc.validat0.rs \
+NODE_ADDRESS=https://cosmos-api.validat0.rs \
+WALLET_ADDRESS=cosmos1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u0tvx7u \
 TAG=cosmoshub-restake-balance \
 make cosmos-balance-check
 ```
