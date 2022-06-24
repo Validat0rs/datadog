@@ -11,7 +11,7 @@ General purpose scripts for any Cosmos chain.
 To check the balance of a given address, run:
 
 ```console
-NODE_ADDRESS=<api_node>
+NODE_ADDRESS=<api_node> \
 WALLET_ADDRESS=<address> \
 TAG=<tag> \
 make cosmos-balance-check
