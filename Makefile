@@ -14,7 +14,7 @@ cosmos-thorchain-thornode-slash-points:
 	@./scripts/cosmos/thorchain/thornode/slash_points.sh -a $(NODE_ADDRESS) -t $(NODE_NAME)
 
 cosmos-balance-check:
-	@./scripts/cosmos/balance_check.sh -a $(ADDRESS) -r $(RPC_ADDRESS) -t $(TAG)
+	@./scripts/cosmos/balance_check.sh -a $(NODE_ADDRESS) -w $(WALLET_ADDRESS) -t $(TAG)
 
 cosmos-block-latency:
 	@./scripts/cosmos/block_latency.sh -r $(RPC_STATUS_URL)
@@ -23,4 +23,4 @@ cosmos-peers:
 	@./scripts/cosmos/peers.sh -r $(RPC_NET_INFO_URL)
 
 ethereum-balance-check:
-	@./scripts/ethereum/balance_check.sh -a $(ADDRESS) -t $(TAG)
+	@./scripts/ethereum/balance_check.sh -w $(WALLET_ADDRESS) -t $(TAG)

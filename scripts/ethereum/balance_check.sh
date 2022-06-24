@@ -12,7 +12,7 @@ usage() {
 
   Options:
   -h      This help output.
-  -a      Wallet address.
+  -w      Wallet address.
   -t      Tag prefix (to help identify the metric in DataDog).
 EOF
   exit 1
@@ -59,13 +59,13 @@ run() {
 EOF
 }
 
-while getopts ":ha:t:" opt; do
+while getopts ":hw:t:" opt; do
   case "${opt}" in
     h)
       usage
       ;;
-    a)
-      a=${OPTARG}
+    w)
+      w=${OPTARG}
       ;;
     t)
       t=${OPTARG}
@@ -77,9 +77,9 @@ while getopts ":ha:t:" opt; do
 done
 shift $((OPTIND-1))
 
-if [ -z "${a}" ] ||
+if [ -z "${w}" ] ||
     [ -z "${t}" ]; then
   usage
 fi
 
-run "${a}" "${t}"
+run "${w}" "${t}"
