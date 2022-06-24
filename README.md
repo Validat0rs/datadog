@@ -1,3 +1,4 @@
+![DataDog](https://imgix.datadoghq.com/img/about/presskit/logo-v/dd_vertical_purple.png)
 # DataDog
 
 Infrastructure monitoring with [DataDog](https://datadoghq.com).
