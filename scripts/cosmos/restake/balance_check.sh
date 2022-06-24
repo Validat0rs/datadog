@@ -45,11 +45,11 @@ run() {
       {
         "interval": 60,
         "tags": [
-          "wallet:${TAG}"
+          "environment:${TAG}"
         ],
         "type": "gauge",
         "unit": "unit",
-        "metric": "cosmos.balance_check",
+        "metric": "cosmos.restake.balance_check",
         "points": [
           [
             "${NOW}",

@@ -7,6 +7,9 @@ provider-aws-configure:
 provider-aws-kubeconfig:
 	@./scripts/provider/aws/kubeconfig.sh -c $(CLUSTER_NAME) -r $(AWS_REGION) -p $(AWS_PROFILE)
 
+cosmos-restake-balance-check:
+	@./scripts/cosmos/restake/balance_check.sh -a $(NODE_ADDRESS) -w $(WALLET_ADDRESS) -t $(TAG)
+
 cosmos-thorchain-thornode-bond:
 	@./scripts/cosmos/thorchain/thornode/bond.sh -a $(NODE_ADDRESS) -t $(NODE_NAME)
 
@@ -15,9 +18,6 @@ cosmos-thorchain-thornode-slash-points:
 
 cosmos-thorchain-thornode-status:
 	@./scripts/cosmos/thorchain/thornode/status.sh -a $(NODE_ADDRESS) -t $(NODE_NAME)
-
-cosmos-balance-check:
-	@./scripts/cosmos/balance_check.sh -a $(NODE_ADDRESS) -w $(WALLET_ADDRESS) -t $(TAG)
 
 cosmos-block-latency:
 	@./scripts/cosmos/block_latency.sh -r $(RPC_STATUS_URL)
