@@ -45,8 +45,8 @@ run() {
         "tags": [
           "wallet:${TAG}"
         ],
-        "type": "gauge",
-        "unit": "second",
+        "type": "count",
+        "unit": "unit",
         "metric": "ethereum.balance.total",
         "points": [
           [
