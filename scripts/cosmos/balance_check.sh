@@ -43,12 +43,13 @@ run() {
   {
     "series": [
       {
+        "interval": 60,
         "tags": [
           "wallet:${TAG}"
         ],
         "type": "gauge",
         "unit": "second",
-        "metric": "cosmos.balance_check",
+        "metric": "cosmos.balance.total",
         "points": [
           [
             "${NOW}",

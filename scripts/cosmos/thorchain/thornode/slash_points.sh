@@ -41,12 +41,13 @@ run() {
   {
     "series": [
       {
+        "interval": 60,
         "tags": [
           "environment:${TAG}"
         ],
         "type": "count",
         "unit": "unit",
-        "metric": "cosmos.thorchain.thornode.slash_points",
+        "metric": "cosmos.thorchain.thornode.slash",
         "points": [
           [
             "${NOW}",

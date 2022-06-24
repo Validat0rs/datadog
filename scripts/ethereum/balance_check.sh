@@ -41,12 +41,13 @@ run() {
   {
     "series": [
       {
+        "interval": 60,
         "tags": [
           "wallet:${TAG}"
         ],
         "type": "gauge",
         "unit": "second",
-        "metric": "ethereum.balance_check",
+        "metric": "ethereum.balance.total",
         "points": [
           [
             "${NOW}",
