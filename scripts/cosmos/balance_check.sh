@@ -47,7 +47,7 @@ run() {
         "tags": [
           "wallet:${TAG}"
         ],
-        "type": "count",
+        "type": "gauge",
         "unit": "unit",
         "metric": "cosmos.balance_check",
         "points": [

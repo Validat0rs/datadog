@@ -46,7 +46,7 @@ run() {
         "tags": [
           "environment:${TAG}"
         ],
-        "type": "count",
+        "type": "gauge",
         "unit": "unit",
         "metric": "cosmos.thorchain.thornode.bond",
         "points": [
