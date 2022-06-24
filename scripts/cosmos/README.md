@@ -8,13 +8,15 @@ General purpose scripts for any Cosmos chain.
 
 ### Balance check
 
-To check the balance of a given address, run:
+#### Restake
+
+To check the balance of a given restake address, run:
 
 ```console
 NODE_ADDRESS=<api_node> \
 WALLET_ADDRESS=<address> \
 TAG=<tag> \
-make cosmos-balance-check
+make cosmos-restake-balance-check
 ```
 
 where:
@@ -31,7 +33,7 @@ e.g.:
 NODE_ADDRESS=https://cosmos-api.validat0.rs \
 WALLET_ADDRESS=cosmos1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u0tvx7u \
 TAG=cosmoshub-restake-balance \
-make cosmos-balance-check
+make cosmos-restake-balance-check
 ```
 
 ### Block Latency
