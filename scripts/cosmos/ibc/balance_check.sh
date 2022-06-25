@@ -52,7 +52,7 @@ run() {
         ],
         "type": "gauge",
         "unit": "unit",
-        "metric": "cosmos.restake.balance_check",
+        "metric": "cosmos.ibc.balance_check",
         "points": [
           [
             "${NOW}",
