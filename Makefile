@@ -7,6 +7,9 @@ provider-aws-configure:
 provider-aws-kubeconfig:
 	@./scripts/provider/aws/kubeconfig.sh -c $(CLUSTER_NAME) -r $(AWS_REGION) -p $(AWS_PROFILE)
 
+cosmos-ibc-balance-check:
+	@./scripts/cosmos/restake/balance_check.sh -a $(NODE_ADDRESS) -p $(PROJECT_NAME) -w $(WALLET_ADDRESS) -t $(TAG)
+
 cosmos-restake-balance-check:
 	@./scripts/cosmos/restake/balance_check.sh -a $(NODE_ADDRESS) -w $(WALLET_ADDRESS) -t $(TAG)
 
