@@ -29,4 +29,4 @@ cosmos-peers:
 	@./scripts/cosmos/peers.sh -r $(RPC_NET_INFO_URL)
 
 ethereum-sommelier-signer-balance-check:
-	@./scripts/ethereum/sommelier/signer_balance_check.sh -w $(WALLET_ADDRESS) -t $(TAG)
+	@./scripts/ethereum/sommelier/signer_balance_check.sh -a $(ETHPLORER_API_KEY) -w $(WALLET_ADDRESS) -t $(TAG)

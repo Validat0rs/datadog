@@ -12,6 +12,7 @@ usage() {
 
   Options:
   -h      This help output.
+  -a      Ethplorer API Key.
   -w      Wallet address.
   -t      Tag prefix (to help identify the metric in DataDog).
 EOF
@@ -22,17 +23,18 @@ EOF
 # Balance.
 #
 balance() {
-  BALANCE=$(curl -s "https://api.ethplorer.io/getAddressInfo/${1}?apiKey=freekey" | jq -r .ETH.balance)
+  BALANCE=$(curl -s "https://api.ethplorer.io/getAddressInfo/${1}?apiKey=${2}" | jq -r .ETH.balance)
 }
 
 #
 # Run.
 #
 run() {
-  ADDRESS="${1}"
-  TAG="${2}"
+  API_KEY="${1}"
+  ADDRESS="${2}"
+  TAG="${3}"
 
-  balance "$ADDRESS"
+  balance "${ADDRESS}" "${API_KEY}"
   NOW=$(date -u +%s)
 
   curl -X POST "https://api.datadoghq.com/api/v1/series?api_key=${DD_API_KEY}" \
@@ -60,10 +62,13 @@ run() {
 EOF
 }
 
-while getopts ":hw:t:" opt; do
+while getopts ":ha:w:t:" opt; do
   case "${opt}" in
     h)
       usage
+      ;;
+    a)
+      a=${OPTARG}
       ;;
     w)
       w=${OPTARG}
@@ -78,9 +83,10 @@ while getopts ":hw:t:" opt; do
 done
 shift $((OPTIND-1))
 
-if [ -z "${w}" ] ||
+if [ -z "${a}" ] ||
+    [ -z "${w}" ] ||
     [ -z "${t}" ]; then
   usage
 fi
 
-run "${w}" "${t}"
+run "${a}" "${w}" "${t}"
