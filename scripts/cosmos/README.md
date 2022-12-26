@@ -17,17 +17,17 @@ NODE_ADDRESS=<api_node> \
 WALLET_ADDRESS=<wallet_address> \
 PROJECT_NAME=<project_name> \
 TAG=<tag> \
-make cosmos-restake-balance-check
+make cosmos-ibc-balance-check
 ```
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<api_node>`|The API node address (including protocol, e.g.: `https://cosmos-api.validat0.rs`).|
-|`<wallet_address>`|The restake address to get the balance of.|
-|`<project_name>`|The name of the project or client relaying for (e.g.: `cosmoshub`)|
-|`<tag>`|The name of the DataDog tag for this metric.|
+| Param              | Description                                                                        |
+|--------------------|------------------------------------------------------------------------------------|
+| `<api_node>`       | The API node address (including protocol, e.g.: `https://cosmos-api.validat0.rs`). |
+| `<wallet_address>` | The restake address to get the balance of.                                         |
+| `<project_name>`   | The name of the project or client relaying for (e.g.: `cosmoshub`)                 |
+| `<tag>`            | The name of the DataDog tag for this metric.                                       |
 
 e.g.:
 
@@ -36,7 +36,7 @@ NODE_ADDRESS=https://cosmos-api.validat0.rs \
 WALLET_ADDRESS=cosmos1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u0tvx7u \
 PROJECT_NAME=cosmoshub \
 TAG=cosmoshub-restake-balance \
-make cosmos-restake-balance-check
+make cosmos-ibc-balance-check
 ```
 
 #### Restake
@@ -52,11 +52,11 @@ make cosmos-restake-balance-check
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<api_node>`|The API node address (including protocol, e.g.: `https://cosmos-api.validat0.rs`).|
-|`<wallet_address>`|The restake address to get the balance of.|
-|`<tag>`|The name of the DataDog tag for this metric.|
+| Param              | Description                                                                        |
+|--------------------|------------------------------------------------------------------------------------|
+| `<api_node>`       | The API node address (including protocol, e.g.: `https://cosmos-api.validat0.rs`). |
+| `<wallet_address>` | The restake address to get the balance of.                                         |
+| `<tag>`            | The name of the DataDog tag for this metric.                                       |
 
 e.g.:
 
@@ -80,11 +80,11 @@ make cosmos-sommelier-orchestrator-balance-check
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<api_node>`|The API node address (including protocol, e.g.: `https://cosmos-api.validat0.rs`).|
-|`<wallet_address>`|The sommelier orchestrator address to get the balance of.|
-|`<tag>`|The name of the DataDog tag for this metric.|
+| Param              | Description                                                                        |
+|--------------------|------------------------------------------------------------------------------------|
+| `<api_node>`       | The API node address (including protocol, e.g.: `https://cosmos-api.validat0.rs`). |
+| `<wallet_address>` | The sommelier orchestrator address to get the balance of.                          |
+| `<tag>`            | The name of the DataDog tag for this metric.                                       |
 
 e.g.:
 
@@ -106,9 +106,9 @@ make cosmos-block-latency
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<rpc_status_url>`|The RPC status URL (e.g.: `http://localhost:26657/status`) |
+| Param              | Description                                                |
+|--------------------|------------------------------------------------------------|
+| `<rpc_status_url>` | The RPC status URL (e.g.: `http://localhost:26657/status`) |
 
 e.g.:
 
@@ -128,9 +128,9 @@ make cosmos-peers
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<rpc_net_info_url>`|The RPC net info URL (e.g.: `http://localhost:26657/net_info`) |
+| Param                | Description                                                    |
+|----------------------|----------------------------------------------------------------|
+| `<rpc_net_info_url>` | The RPC net info URL (e.g.: `http://localhost:26657/net_info`) |
 
 e.g.:
 
@@ -155,10 +155,10 @@ make cosmos-thorchain-thornode-bond
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<node_address>`|The bond address of the node (e.g.: `thor19ph9mawujd73gvep82pk09pmmsdl35983mk73z`)|
-|`<node_name>`|A friendly name to identify the node in DataDog (e.g.: `thorchain01`)|
+| Param            | Description                                                                        |
+|------------------|------------------------------------------------------------------------------------|
+| `<node_address>` | The bond address of the node (e.g.: `thor19ph9mawujd73gvep82pk09pmmsdl35983mk73z`) |
+| `<node_name>`    | A friendly name to identify the node in DataDog (e.g.: `thorchain01`)              |
 
 e.g.:
 
@@ -180,10 +180,10 @@ make cosmos-thorchain-thornode-slash-points
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<node_address>`|The bond address of the node (e.g.: `thor19ph9mawujd73gvep82pk09pmmsdl35983mk73z`)|
-|`<node_name>`|A friendly name to identify the node in DataDog (e.g.: `thorchain01`)|
+| Param            | Description                                                                        |
+|------------------|------------------------------------------------------------------------------------|
+| `<node_address>` | The bond address of the node (e.g.: `thor19ph9mawujd73gvep82pk09pmmsdl35983mk73z`) |
+| `<node_name>`    | A friendly name to identify the node in DataDog (e.g.: `thorchain01`)              |
 
 e.g.:
 
@@ -205,10 +205,10 @@ make cosmos-thorchain-thornode-status
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<node_address>`|The bond address of the node (e.g.: `thor19ph9mawujd73gvep82pk09pmmsdl35983mk73z`)|
-|`<node_name>`|A friendly name to identify the node in DataDog (e.g.: `thorchain01`)|
+| Param            | Description                                                                        |
+|------------------|------------------------------------------------------------------------------------|
+| `<node_address>` | The bond address of the node (e.g.: `thor19ph9mawujd73gvep82pk09pmmsdl35983mk73z`) |
+| `<node_name>`    | A friendly name to identify the node in DataDog (e.g.: `thorchain01`)              |
 
 e.g.:
 

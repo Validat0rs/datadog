@@ -27,11 +27,11 @@ make provider-aws-kubeconfig
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<cluster_name>`|The name of your EKS cluster.|
-|`<aws_region>`|The AWS region where your cluster is deployed to.|
-|`<aws_profile>`|The name of the AWS profile.|
+| Param            | Description                                       |
+|------------------|---------------------------------------------------|
+| `<cluster_name>` | The name of your EKS cluster.                     |
+| `<aws_region>`   | The AWS region where your cluster is deployed to. |
+| `<aws_profile>`  | The name of the AWS profile.                      |
 
 e.g.:
 
@@ -47,12 +47,12 @@ make provider-aws-kubeconfig
 3. Deploy the helm chart:
 
 ```console
-API_KEY=<API_KEY> make helm-datadog-deploy
+DD_API_KEY=<API_KEY> make helm-datadog-deploy
 ```
 e.g.:
 
 ```console
-API_KEY=b55gweGZj9LWxXG5 \
+DD_API_KEY=b55gweGZj9LWxXG5 \
 make vendor-datadog-helm-deploy
 ```
 
@@ -76,9 +76,9 @@ DD_API_KEY=<api_key>
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<api_key>`|Your API key you just generated.|
+| Param       | Description                      |
+|-------------|----------------------------------|
+| `<api_key>` | Your API key you just generated. |
 
 e.g.:
 
@@ -97,9 +97,9 @@ bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"
 
 where:
 
-|Param|Description|
-|-----|-----------|
-|`<api_key>`|Your API key generated in the previous step.|
+| Param       | Description                                  |
+|-------------|----------------------------------------------|
+| `<api_key>` | Your API key generated in the previous step. |
 
 e.g.:
 
