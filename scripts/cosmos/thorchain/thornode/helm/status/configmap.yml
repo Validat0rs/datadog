@@ -1,0 +1,52 @@
+kind: ConfigMap
+metadata:
+  name: status
+  namespace: monitoring
+  selfLink: /api/v1/namespaces/monitoring/configmaps/status
+apiVersion: v1
+data:
+  status.sh: |
+    #!/bin/sh
+    #
+    # THORNode Status.
+    #
+
+    #
+    # Status.
+    #
+    status() {
+      STATUS=$(curl -s https://thornode.ninerealms.com/thorchain/node/"${1}" | jq -r .preflight_status.code)
+    }
+
+    #
+    # Run.
+    #
+    ADDRESS="${1}"
+    TAG="${2}"
+
+    status "$ADDRESS"
+    NOW=$(date -u +%s)
+
+    curl -X POST "https://api.datadoghq.com/api/v1/series?api_key=${DD_API_KEY}" \
+    -H "Content-Type: application/json" \
+    -d @- << EOF
+    {
+      "series": [
+        {
+          "interval": 60,
+          "tags": [
+            "environment:${TAG}"
+          ],
+          "type": "gauge",
+          "unit": "unit",
+          "metric": "cosmos.thorchain.thornode.status",
+          "points": [
+            [
+              "${NOW}",
+              "${STATUS}"
+            ]
+          ]
+        }
+      ]
+    }
+    EOF

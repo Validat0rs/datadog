@@ -16,6 +16,9 @@ cosmos-restake-balance-check:
 cosmos-sommelier-orchestrator-balance-check:
 	@./scripts/cosmos/sommelier/orchestrator_balance_check.sh -a $(NODE_ADDRESS) -w $(WALLET_ADDRESS) -t $(TAG)
 
+cosmos-thorchain-thornode-helm-deploy:
+	@./scripts/cosmos/thorchain/thornode/helm/deploy.sh -c $(CHECK)
+
 cosmos-thorchain-thornode-bond:
 	@./scripts/cosmos/thorchain/thornode/bond.sh -a $(NODE_ADDRESS) -t $(NODE_NAME)
 

@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: status
+  namespace: monitoring
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: status
+              image: busybox-curl-jq:latest
+              imagePullPolicy: IfNotPresent
+              resources:
+                requests:
+                  cpu: 1m
+                  memory: 100Mi
+              env:
+                - name: DD_API_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: datadog-agent
+                      key: api-key
+              command: ["/bin/sh"]
+              args:
+                - "+x"
+                - "/scripts/status.sh"
+                - "thor18jmgnzck5mjtxpq7e7z6mqkt3ynvjermfrxj82"
+                - "thorchain01"
+              volumeMounts:
+                - name: status
+                  mountPath: /scripts
+          volumes:
+            - name: status
+              configMap:
+                name: status
+                defaultMode: 0744
+          restartPolicy: Never
+      backoffLimit: 0
