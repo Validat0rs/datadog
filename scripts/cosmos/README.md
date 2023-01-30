@@ -67,3 +67,10 @@ TAG=cosmoshub-restake-balance \
 make cosmos-restake-balance-check
 ```
 
+## Sommelier
+
+For Sommelier specific scripts, see [here](sommelier/README.md).
+
+## THORChain
+
+For THORChain specific scripts, see [here](thorchain/README.md).
