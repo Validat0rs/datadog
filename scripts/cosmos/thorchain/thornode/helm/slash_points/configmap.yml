@@ -1,0 +1,52 @@
+kind: ConfigMap
+metadata:
+  name: slash-points
+  namespace: monitoring
+  selfLink: /api/v1/namespaces/monitoring/configmaps/slash-points
+apiVersion: v1
+data:
+  slash_points.sh: |
+    #!/bin/sh
+    #
+    # THORNode Slash Points.
+    #
+
+    #
+    # Slash Points.
+    #
+    slash_points() {
+      SLASH_POINTS=$(curl -s https://thornode.ninerealms.com/thorchain/node/"${1}" | jq .slash_points)
+    }
+    
+    #
+    # Run.
+    #
+    ADDRESS="${1}"
+    TAG="${2}"
+  
+    slash_points "$ADDRESS"
+    NOW=$(date -u +%s)
+  
+    curl -X POST "https://api.datadoghq.com/api/v1/series?api_key=${DD_API_KEY}" \
+    -H "Content-Type: application/json" \
+    -d @- << EOF
+    {
+      "series": [
+        {
+          "interval": 60,
+          "tags": [
+            "environment:${TAG}"
+          ],
+          "type": "gauge",
+          "unit": "unit",
+          "metric": "cosmos.thorchain.thornode.slash_points",
+          "points": [
+            [
+              "${NOW}",
+              "${SLASH_POINTS}"
+            ]
+          ]
+        }
+      ]
+    }
+    EOF
