@@ -27,7 +27,7 @@ spec:
               args:
                 - "+x"
                 - "/scripts/status.sh"
-                - "thor18jmgnzck5mjtxpq7e7z6mqkt3ynvjermfrxj82"
+                - "thor1ma9hqq839kmj58s468g5557y0qddccrxp9egue"
                 - "thorchain01"
               volumeMounts:
                 - name: status
